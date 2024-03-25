@@ -12,7 +12,7 @@ from Fonctions_projet_S4 import *
 
 st.markdown("<h1 style='text-align: center; color: red;'>Googl'INP</h1>", unsafe_allow_html=True)
 
-st.markdown("<h3 style='text-align: center; color: black;'>Bite</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; color: black;'>Voici les résultats !!</h3>", unsafe_allow_html=True)
 
 matiere = st.selectbox(
    "Dans quelle matière as-tu besoin d'aide?",
