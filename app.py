@@ -13,8 +13,7 @@ from Fonctions_projet_S4 import *
 
 with st.columns(3)[1]:
    st.title("Googl'INP")
-
-st.write("Ajd on se retrouve avec inoxtag")
+   st.write("Ajd on se retrouve avec inoxtag")
 
 matiere = st.selectbox(
    "Dans quelle matière as-tu besoin d'aide?",
