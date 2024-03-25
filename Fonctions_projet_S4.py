@@ -9,7 +9,6 @@ Created on Thu Mar 21 16:02:10 2024
 
 import pandas as pd
 import numpy as np
-import emoji
 
 
 
