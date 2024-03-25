@@ -13,7 +13,7 @@ from Fonctions_projet_S4 import *
 
 st.markdown("<h1 style='text-align: center; color: red;'>Googl'INP</h1>", unsafe_allow_html=True)
 
-st.markdown("<h2 style='text-align: center; color: black;'>Bite</h2>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; color: black;'>Bite</h3>", unsafe_allow_html=True)
 
 matiere = st.selectbox(
    "Dans quelle matière as-tu besoin d'aide?",
@@ -33,6 +33,7 @@ if matiere != None:
        resultats_df = tuple2df(resultats)
        resultats_df.index += 1
        with st.columns(3)[1]:
+          st.write(matiere)
           st.write(resultats_df)
         
     else :
