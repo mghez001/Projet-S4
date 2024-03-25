@@ -41,10 +41,8 @@ if matiere != None:
                 break
             elif matiere == 'Chimie':
                 matiere = 'En Chime :'
-        st.write(matiere)
-    
-        df = excel_to_df(df_sondage, matiere)
-        resultats = df_to_pr(df)
-        resultats_df = tuple2df(resultats)
-        resultats_df.index += 1 
+       df = excel_to_df(df_sondage, matiere)
+       resultats = df_to_pr(df)
+       resultats_df = tuple2df(resultats)
+       resultats_df.index +=1 
        st.dataframe(resultats_df,width = 700)
