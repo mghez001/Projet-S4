@@ -5,7 +5,6 @@ Created on Thu Mar 21 16:05:33 2024
 
 @author: mghezal001
 """
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -21,6 +20,13 @@ matiere = st.selectbox(
    index=None,
    placeholder="Ex : Mathématiques...",
 )
+col1, col2= st.columns(2)
+
+with col1:
+    st.checkbox("Contacts", value=False, key="contact")
+
+with col2:
+    st.checkbox("Plus de détails", value=False, key="detail")
 
 df_sondage = pd.read_csv('Sondage.csv')
 participant = list(df_sondage["Qui êtes-vous ?"])
@@ -28,12 +34,17 @@ list_matiere = ['En Informatique :','En Biologie :','En Mathématiques :','En Ph
 
 if matiere != None:
     if matiere == 'Général':
-       df = excel_to_fulldf(df_sondage)
-       resultats = df_to_pr(df)
-       resultats_df = tuple2df(resultats)
-       resultats_df.index += 1
-       st.dataframe(resultats_df,width = 700)
-        
+        df = excel_to_fulldf(df_sondage)
+        resultats = df_to_pr(df)
+        resultats_df = tuple2df(resultats)
+        resultats_df.index += 1
+        if st.session_state.contact and st.session_state.detail:
+            st.dataframe(resultats_df,use_container_width=True)
+        elif st.session_state.detail:
+            st.dataframe(resultats_df,use_container_width=True, column_order=('Nom','Fiabilité','Score'))
+        else :
+            st.dataframe(resultats_df,use_container_width=True, column_order=('Nom','Fiabilité'))
+    
     else :
        for elt in list_matiere:
             if str(matiere) == elt[3:-2]:
@@ -45,4 +56,4 @@ if matiere != None:
        resultats = df_to_pr(df)
        resultats_df = tuple2df(resultats)
        resultats_df.index +=1 
-       st.dataframe(resultats_df,width = 700)
+       st.dataframe(resultats_df,use_container_width=True)
