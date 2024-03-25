@@ -33,7 +33,7 @@ if matiere != None:
        resultats_df = tuple2df(resultats)
        resultats_df.index += 1
        st.write(matiere)
-       st.dataframe(resultats_df,width = 300)
+       st.dataframe(resultats_df,width = 700)
         
     else :
         for elt in list_matiere:
