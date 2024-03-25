@@ -129,8 +129,8 @@ def tuple2df(resultat):
         if round(elt[1]*100,2) >= 5:
             score.append(3*'🌟')
         elif round(elt[1]*100,2) >= 1:
-            score.append(2*":star2:")
+            score.append(2*'🌟'))
         elif round(elt[1]*100,2) < 1:
-            score.append(":star2:")
+            score.append('🌟'))
     data = pd.DataFrame({'Nom': nom, 'Fiabilité' : score})
     return data
