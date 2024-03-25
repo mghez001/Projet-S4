@@ -11,8 +11,8 @@ import pandas as pd
 import numpy as np
 from Fonctions_projet_S4 import *
 
-
-st.title(":sos: Googl'INP :sos:")
+with st.columns(3)[1]:
+   st.title(":sos: Googl'INP :sos:")
 
 st.write("Ajd on se retrouve avec inoxtag")
 
