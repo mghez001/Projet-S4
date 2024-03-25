@@ -11,9 +11,13 @@ import pandas as pd
 import numpy as np
 from Fonctions_projet_S4 import *
 
-with st.columns(3)[1]:
+"""with st.columns(3)[1]:
    st.title("Googl'INP")
    st.write("Ajd on se retrouve avec inoxtag")
+"""
+st.markdown("<h1 style='text-align: center; color: grey;'>:sos: Googl'INP :sos:</h1>", unsafe_allow_html=True)
+
+st.markdown("<h2 style='text-align: center; color: black;'>Bite</h2>", unsafe_allow_html=True)
 
 matiere = st.selectbox(
    "Dans quelle matière as-tu besoin d'aide?",
