@@ -6,11 +6,8 @@ Created on Thu Mar 21 16:02:10 2024
 @author: mghezal001
 """
 
-
 import pandas as pd
 import numpy as np
-
-
 
 
 def excel_to_fulldf(df_sondage):
@@ -123,14 +120,16 @@ def df_to_pr(df): #Fonction à appeler
 
 def tuple2df(resultat):
     nom = []
+    fiabilite = []
     score = []
     for elt in resultat:
         nom.append(elt[0])
+        score.append(str(round(elt[1]*100,2))+"%")
         if round(elt[1]*100,2) >= 5:
-            score.append(3*'🌟')
+            fiabilite.append(3*'🌟')
         elif round(elt[1]*100,2) >= 1:
-            score.append(2*'🌟')
+            fiabilite.append(2*'🌟')
         elif round(elt[1]*100,2) < 1:
-            score.append('🌟')
-    data = pd.DataFrame({'Nom': nom, 'Fiabilité' : score})
+            fiabilite.append('🌟')
+    data = pd.DataFrame({'Nom': nom, 'Fiabilité' : fiabilite, 'Score' : score})
     return data
