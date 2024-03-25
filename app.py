@@ -32,7 +32,6 @@ if matiere != None:
        resultats = df_to_pr(df)
        resultats_df = tuple2df(resultats)
        resultats_df.index += 1
-       st.write(matiere)
        st.dataframe(resultats_df,width = 700)
         
     else :
@@ -48,4 +47,4 @@ if matiere != None:
         resultats = df_to_pr(df)
         resultats_df = tuple2df(resultats)
         resultats_df.index += 1 
-        st.write(resultats_df)
+       st.dataframe(resultats_df,width = 700)
