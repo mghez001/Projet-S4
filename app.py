@@ -35,7 +35,7 @@ if matiere != None:
        st.dataframe(resultats_df,width = 700)
         
     else :
-        for elt in list_matiere:
+       for elt in list_matiere:
             if str(matiere) == elt[3:-2]:
                 matiere = elt
                 break
