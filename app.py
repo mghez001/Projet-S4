@@ -32,9 +32,8 @@ if matiere != None:
        resultats = df_to_pr(df)
        resultats_df = tuple2df(resultats)
        resultats_df.index += 1
-       with st.columns(3)[1]:
-          st.write(matiere)
-          st.write(resultats_df)
+       st.write(matiere)
+       st.write(resultats_df)
         
     else :
         for elt in list_matiere:
