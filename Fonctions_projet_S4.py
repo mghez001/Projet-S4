@@ -9,6 +9,7 @@ Created on Thu Mar 21 16:02:10 2024
 
 import pandas as pd
 import numpy as np
+import emoji
 
 
 
@@ -127,7 +128,7 @@ def tuple2df(resultat):
     for elt in resultat:
         nom.append(elt[0])
         if round(elt[1]*100,2) >= 5:
-            score.append(st.write(3*':star2:'))
+            score.append(emoji.emojize(3*':star2:'))
         elif round(elt[1]*100,2) >= 1:
             score.append(2*":star2:")
         elif round(elt[1]*100,2) < 1:
