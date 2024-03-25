@@ -11,11 +11,7 @@ import pandas as pd
 import numpy as np
 from Fonctions_projet_S4 import *
 
-"""with st.columns(3)[1]:
-   st.title("Googl'INP")
-   st.write("Ajd on se retrouve avec inoxtag")
-"""
-st.markdown("<h1 style='text-align: center; color: grey;'>:sos: Googl'INP :sos:</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: red;'>Googl'INP</h1>", unsafe_allow_html=True)
 
 st.markdown("<h2 style='text-align: center; color: black;'>Bite</h2>", unsafe_allow_html=True)
 
@@ -32,11 +28,12 @@ list_matiere = ['En Informatique :','En Biologie :','En Mathématiques :','En Ph
 
 if matiere != None:
     if matiere == 'Général':
-        df = excel_to_fulldf(df_sondage)
-        resultats = df_to_pr(df)
-        resultats_df = tuple2df(resultats)
-        resultats_df.index += 1 
-        st.write(resultats_df)
+       df = excel_to_fulldf(df_sondage)
+       resultats = df_to_pr(df)
+       resultats_df = tuple2df(resultats)
+       resultats_df.index += 1
+       with st.columns(3)[1]:
+          st.write(resultats_df)
         
     else :
         for elt in list_matiere:
