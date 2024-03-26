@@ -13,6 +13,8 @@ import pandas as pd
 import numpy as np
 from Fonctions_projet_S4 import *
 
+st.set_page_config(page_title='Googl'INP')
+
 st.markdown("<h1 style='text-align: center; color: red;font-size: 4em;text-decoration: underline;'>Googl'INP</h1><br>", unsafe_allow_html=True)
 
 st.markdown("<h5 style='text-align: center; color: black;'>Bienvenue sur le site d'aide aux devoirs de La Prépa des INP, nous espérons que vous trouverez le tuteur qui VOUS correspond !</h5><br>", unsafe_allow_html=True)
