@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Created on Thu Mar 21 16:02:10 2024
 
 @author: mghezal001
 """
+
 
 import pandas as pd
 import numpy as np
@@ -107,6 +110,36 @@ def pageRankTP(G, epsilon, beta=0.85):
   return r/sum(r), ite
 
 
+def resultats_nb_votes(df_sondage, matiere):
+  df = excel_to_df(df_sondage, matiere)
+  participants = list(df.columns)
+  resultats = []
+  for i in range(len(participants)):
+    resultats.append((participants[i],
+                      sum(df.iloc[i,:])*5/df.sum().sum())) # f
+  resultats.sort(key=lambda x:x[1],reverse=True)
+
+  return resultats
+
+
+
+def resultats_full_nb_votes(df_sondage):
+  df = excel_to_fulldf(df_sondage)
+  participants = list(df.columns)
+  resultats = []
+  for i in range(len(participants)):
+    resultats.append((participants[i],
+                      sum(df.iloc[i,:])*5/df.sum().sum())) # f
+  resultats.sort(key=lambda x:x[1],reverse=True)
+
+  return resultats
+
+def resultats_contacts(df_sondage):
+    resultats = []
+    for i in range(df_sondage.shape[0]):
+        row = df_sondage.iloc[i,:]
+        resultats.append((row["Qui êtes-vous ?"], row["Contacts"]))
+    return resultats
 
 def df_to_pr(df): #Fonction à appeler
   pr = pageRankTP(df, 1e-4)[0]
@@ -118,18 +151,39 @@ def df_to_pr(df): #Fonction à appeler
   resultats.sort(key=lambda x:x[1],reverse=True)
   return resultats
 
-def tuple2df(resultat):
+def hyperlink(url):
+    if url != None:
+        return f'<a target="_blank" href="{url}">{url}</a>'
+
+def tuple2df(resultat,nb_votes,contacts):
     nom = []
     fiabilite = []
     score = []
+    
     for elt in resultat:
         nom.append(elt[0])
-        score.append(str(round(elt[1]*100,2))+"%")
+        score.append(str(round(elt[1]*100,2))+" %")
         if round(elt[1]*100,2) >= 5:
             fiabilite.append(3*'🌟')
         elif round(elt[1]*100,2) >= 1:
             fiabilite.append(2*'🌟')
         elif round(elt[1]*100,2) < 1:
             fiabilite.append('🌟')
-    data = pd.DataFrame({'Nom': nom, 'Fiabilité' : fiabilite, 'Score' : score})
+    
+    data = pd.DataFrame({'Nom': list(map(lambda x : x[0], nom)), 'Fiabilité' : fiabilite, 'Score w/ PR' : score})
+    data.insert(2, '% de votes', [None]*data.shape[0],True)
+    data.insert(4, 'Contacts', [None]*data.shape[0],True)
+    
+    for elt in nb_votes:
+        index = data.index[data.Nom == elt[0]]
+        data.loc[index,'% de votes'] = str(round(elt[1]*100/5,2))+" %"
+        
+    for elt in contacts:
+        index = data.index[data.Nom == elt[0]]
+        data.loc[index,'Contacts'] = elt[1]
+        
+          
     return data
+
+
+
