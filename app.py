@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 from Fonctions_projet_S4 import *
 
-st.set_page_config(page_title='Googl'INP')
+st.set_page_config(page_title="Googl'INP")
 
 st.markdown("<h1 style='text-align: center; color: red;font-size: 4em;text-decoration: underline;'>Googl'INP</h1><br>", unsafe_allow_html=True)
 
