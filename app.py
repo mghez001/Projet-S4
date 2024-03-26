@@ -31,7 +31,7 @@ with col1:
 with col2:
     st.checkbox("Plus de détails", value=False, key="detail")
 
-df_sondage = pd.read_csv('Sondage1.csv')
+df_sondage = pd.read_csv('Sondage.csv')
 participant = list(df_sondage["Qui êtes-vous ?"])
 list_matiere = ['En Informatique :','En Biologie :','En Mathématiques :','En Physique :','En Chime :']
 
